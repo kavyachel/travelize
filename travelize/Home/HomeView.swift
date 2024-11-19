@@ -11,16 +11,6 @@ struct HomeView: View {
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Date()
     @State private var selectedCity: String = ""
-        
-    let cities = [
-        "New York",
-        "London",
-        "Tokyo",
-        "Paris",
-        "Dubai",
-        "Singapore",
-        "Sydney"
-    ]
     
     var body: some View {
         NavigationView {
@@ -32,26 +22,8 @@ struct HomeView: View {
                 Text("Plan Your Trip")
                     .font(.title)
                     .fontWeight(.bold)
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Select Destination")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                    
-                    Picker("Select a city", selection: $selectedCity) {
-                        Text("Choose a city").tag("")
-                        ForEach(cities, id: \.self) { city in
-                            Text(city).tag(city)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemBackground))
-                    .cornerRadius(10)
-                    .shadow(radius: 1)
-                }
-                .padding(.horizontal)
+                 
+                SearchView()
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Select Dates")
@@ -102,6 +74,10 @@ struct HomeView: View {
             .background(Color(.systemGroupedBackground))
             .edgesIgnoringSafeArea(.bottom)
         }
+    }
+    
+    var results: [String] {
+      selectedCity.isEmpty ? cities : cities.filter { $0.contains(selectedCity) }
     }
 }
 
