@@ -19,6 +19,7 @@ struct ItineraryView: View {
         return formatter
     }()
     
+    //View
     var body: some View {
         ZStack {
             Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all)
@@ -43,9 +44,11 @@ struct ItineraryView: View {
             generateItinerary()
         }
     }
-
+    
+    //ViewModel
+    
+    //Communicates with AI API
     func generateItinerary() {
-        
         let numberOfDays = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
         textInput = createPrompt(city: city, numberOfDays: numberOfDays + 1, startDate: startDate, endDate: endDate)
         
@@ -67,6 +70,7 @@ struct ItineraryView: View {
         }
     }
     
+    //Creates a prompt for API
     private func createPrompt(city: String, numberOfDays: Int, startDate: Date, endDate: Date) -> String {
         """
         Create a detailed \(numberOfDays)-day itinerary for \(city) from \(startDate) to \(endDate). Take the season into consideration. Format each activity exactly like this, with no asterisks or special characters:
@@ -94,6 +98,7 @@ struct ItineraryView: View {
         """
     }
     
+    //Converts AI response into itinerary
     private func parseAndUpdateItinerary(response: String, startDate: Date, numberOfDays: Int) {
         var newItineraryDays: [ItineraryDay] = []
         let dayStrings = response.components(separatedBy: "Day")

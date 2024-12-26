@@ -37,7 +37,7 @@ struct ActivityRowView: View {
                         .foregroundColor(Color(UIColor.label))
                         .fontWeight(.medium)
                     
-                    // Description if available
+                    // Description
                     if let description = activity.description {
                         Text(description)
                             .font(.subheadline)

@@ -30,13 +30,13 @@ struct SearchView: View {
                     .font(.body)
                     .foregroundColor(Color(UIColor.secondaryLabel))
                     .bold()
-                    
+                
+                //Search bar
                 HStack(spacing: 8) {
                     TextField("Search a City", text: $searchText)
                         .textFieldStyle(.plain)
                         .focused($isFocused)
                     
-                   
                     if !searchText.isEmpty {
                         Button(action: {
                             searchText = ""
@@ -54,7 +54,6 @@ struct SearchView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color(.systemGray5).opacity(0.2))
                 )
-                
                 
                 if !filteredCities.isEmpty && isFocused {
                     VStack(spacing: 0) {

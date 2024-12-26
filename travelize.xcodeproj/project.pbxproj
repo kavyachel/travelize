@@ -95,6 +95,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		7B1B3D9E2D1D004A00E6F31C /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				7BD382292CF01BAC00095CFA /* LoadingView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		7BA0546D2CE3C2C2000B300B = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				7B1B3D9A2D1A347900E6F31C /* Assets */,
-				7BD3821C2CE3EC5200095CFA /* Preview Content */,
 				7BD382192CE3E95000095CFA /* Itinerary */,
+				7B1B3D9E2D1D004A00E6F31C /* Loading */,
 				7BD382182CE3E94400095CFA /* Home */,
 				7BA0547B2CE3C2C2000B300B /* ContentView.swift */,
 				7BA054A52CE3CA25000B300B /* APIKey.swift */,
@@ -143,7 +151,6 @@
 			children = (
 				7B9C5AC72CE3CF4F0056B70B /* HomeView.swift */,
 				7BD382272CEC1B6100095CFA /* SearchView.swift */,
-				7BD382292CF01BAC00095CFA /* LoadingView.swift */,
 				7BD3821F2CE3F6EA00095CFA /* CityList.swift */,
 			);
 			path = Home;
@@ -157,13 +164,6 @@
 				7BD382252CEC0EE700095CFA /* ActivityRowView.swift */,
 			);
 			path = Itinerary;
-			sourceTree = "<group>";
-		};
-		7BD3821C2CE3EC5200095CFA /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

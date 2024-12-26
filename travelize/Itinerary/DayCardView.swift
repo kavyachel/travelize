@@ -19,6 +19,7 @@ struct DayCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            // Header
             HStack {
                 Image(systemName: "calendar")
                 Text(dateFormatter.string(from: day.date))

@@ -23,7 +23,7 @@ struct HomeView: View {
                     Text("✈️")
                         .font(.system(size: 60))
                         .padding(.top)
-                    
+                    //Header
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Plan Your Trip")
                             .font(.title)
@@ -32,9 +32,12 @@ struct HomeView: View {
                             .padding(.horizontal)
                             .padding(.top)
                         
+                        //Search bar
                         SearchView(){ city in
                             self.selectedCity = city
                         }
+                        
+                        //Datepickers
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Choose your dates")
                                 .font(.body)
@@ -56,6 +59,7 @@ struct HomeView: View {
                         }
                         .padding(.horizontal)
                         
+                        //Button
                         NavigationLink(destination: ItineraryView(city: selectedCity,
                                                                   startDate: startDate,
                                                                   endDate: endDate)) {
