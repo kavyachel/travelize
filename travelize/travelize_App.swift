@@ -15,3 +15,4 @@ struct travelize_App: App {
         }
     }
 }
+

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B1B3D9C2D1A348C00E6F31C /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B3D9B2D1A348C00E6F31C /* globe.jpg */; };
 		7B9C5AC62CE3CE9A0056B70B /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5AC52CE3CE9A0056B70B /* GenerativeAI-Info.plist */; };
 		7B9C5AC82CE3CF4F0056B70B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5AC72CE3CF4F0056B70B /* HomeView.swift */; };
 		7B9C5ACA2CE3CFBA0056B70B /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5AC92CE3CFBA0056B70B /* ItineraryView.swift */; };
@@ -20,6 +21,7 @@
 		7BD382242CEAA6C400095CFA /* DayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD382232CEAA6C400095CFA /* DayCardView.swift */; };
 		7BD382262CEC0EE700095CFA /* ActivityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD382252CEC0EE700095CFA /* ActivityRowView.swift */; };
 		7BD382282CEC1B6100095CFA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD382272CEC1B6100095CFA /* SearchView.swift */; };
+		7BD3822A2CF01BAC00095CFA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD382292CF01BAC00095CFA /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B1B3D9B2D1A348C00E6F31C /* globe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = globe.jpg; path = ../../../../Desktop/globe.jpg; sourceTree = "<group>"; };
 		7B9C5AC52CE3CE9A0056B70B /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		7B9C5AC72CE3CF4F0056B70B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7B9C5AC92CE3CFBA0056B70B /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		7BD382232CEAA6C400095CFA /* DayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCardView.swift; sourceTree = "<group>"; };
 		7BD382252CEC0EE700095CFA /* ActivityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRowView.swift; sourceTree = "<group>"; };
 		7BD382272CEC1B6100095CFA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7BD382292CF01BAC00095CFA /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B1B3D9A2D1A347900E6F31C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7B1B3D9B2D1A348C00E6F31C /* globe.jpg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		7BA0546D2CE3C2C2000B300B = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +117,7 @@
 		7BA054782CE3C2C2000B300B /* travelize */ = {
 			isa = PBXGroup;
 			children = (
+				7B1B3D9A2D1A347900E6F31C /* Assets */,
 				7BD3821C2CE3EC5200095CFA /* Preview Content */,
 				7BD382192CE3E95000095CFA /* Itinerary */,
 				7BD382182CE3E94400095CFA /* Home */,
@@ -129,8 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				7B9C5AC72CE3CF4F0056B70B /* HomeView.swift */,
-				7BD3821F2CE3F6EA00095CFA /* CityList.swift */,
 				7BD382272CEC1B6100095CFA /* SearchView.swift */,
+				7BD382292CF01BAC00095CFA /* LoadingView.swift */,
+				7BD3821F2CE3F6EA00095CFA /* CityList.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -262,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1B3D9C2D1A348C00E6F31C /* globe.jpg in Resources */,
 				7BD3821E2CE3EF5C00095CFA /* .gitignore in Resources */,
 				7B9C5AC62CE3CE9A0056B70B /* GenerativeAI-Info.plist in Resources */,
 			);
@@ -291,6 +306,7 @@
 				7BD382262CEC0EE700095CFA /* ActivityRowView.swift in Sources */,
 				7BD382282CEC1B6100095CFA /* SearchView.swift in Sources */,
 				7BA0547C2CE3C2C2000B300B /* ContentView.swift in Sources */,
+				7BD3822A2CF01BAC00095CFA /* LoadingView.swift in Sources */,
 				7B9C5AC82CE3CF4F0056B70B /* HomeView.swift in Sources */,
 				7BA054A62CE3CA25000B300B /* APIKey.swift in Sources */,
 				7B9C5ACA2CE3CFBA0056B70B /* ItineraryView.swift in Sources */,

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    let didSelectCity: (String) -> Void
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
     
@@ -24,16 +25,36 @@ struct SearchView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            VStack(spacing: 0) {
-                TextField("Search cities...", text: $searchText)
-                    .textFieldStyle(.plain)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(.systemGray6))
-                    )
-                    .focused($isFocused)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Choose your location")
+                    .font(.body)
+                    .foregroundColor(Color(UIColor.secondaryLabel))
+                    .bold()
+                    
+                HStack(spacing: 8) {
+                    TextField("Search a City", text: $searchText)
+                        .textFieldStyle(.plain)
+                        .focused($isFocused)
+                    
+                   
+                    if !searchText.isEmpty {
+                        Button(action: {
+                            searchText = ""
+                            isFocused = true // Keep focus after clearing
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(Color(.systemGray3))
+                                .font(.system(size: 16))
+                        }
+                    }
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(.systemGray5).opacity(0.2))
+                )
+                
                 
                 if !filteredCities.isEmpty && isFocused {
                     VStack(spacing: 0) {
@@ -41,6 +62,7 @@ struct SearchView: View {
                             Button(action: {
                                 searchText = city
                                 isFocused = false
+                                didSelectCity(city)
                             }) {
                                 HStack {
                                     Text(city)
@@ -49,7 +71,7 @@ struct SearchView: View {
                                 }
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 12)
-                                .background(Color(.systemBackground))
+                                .background(Color(.systemGray5).opacity(0.6))
                             }
                             
                             if city != filteredCities.last {
@@ -58,20 +80,15 @@ struct SearchView: View {
                             }
                         }
                     }
-                    .background(Color(.systemBackground))
+                    .background(Color(.systemGray5).opacity(0.6))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
-                    .transition(.opacity)
+                    .shadow(color: Color(.systemGray5).opacity(0.1), radius: 5, x: 0, y: 5)
                 }
             }
         }
         .padding(.horizontal)
-        .animation(.easeInOut(duration: 0.2), value: filteredCities)
+        .padding(.bottom)
+        .animation(.linear, value: filteredCities)
     }
-}
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
+    
 }

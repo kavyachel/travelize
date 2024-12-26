@@ -20,15 +20,16 @@ struct ItineraryView: View {
     }()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ScrollView {
-                if itineraryDays.isEmpty {
-                    VStack {
-                        Text(response)
-                            .font(.system(.body, design: .rounded, weight: .medium))
-                            .opacity(isThinking ? 0.2 : 1.0)
-                    }
-                } else {
+        ZStack {
+            Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all)
+
+            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.cyan.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            
+            if itineraryDays.isEmpty {
+                LoadingView()
+            } else {
+                ScrollView {
                     LazyVStack(spacing: 20) {
                         ForEach(itineraryDays) { day in
                             DayCardView(day: day, dateFormatter: dateFormatter)
@@ -42,16 +43,11 @@ struct ItineraryView: View {
             generateItinerary()
         }
     }
-    
+
     func generateItinerary() {
-        response = "Thinking..."
         
         let numberOfDays = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day ?? 0
         textInput = createPrompt(city: city, numberOfDays: numberOfDays + 1, startDate: startDate, endDate: endDate)
-
-        withAnimation(.easeInOut(duration: 0.6).repeatForever(autoreverses: true)) {
-            isThinking.toggle()
-        }
         
         Task {
             do {
@@ -73,7 +69,7 @@ struct ItineraryView: View {
     
     private func createPrompt(city: String, numberOfDays: Int, startDate: Date, endDate: Date) -> String {
         """
-        Create a detailed \(numberOfDays)-day itinerary for \(city) from \(startDate) to \(endDate). Take the dates and season into consideration. Format each activity exactly like this, with no asterisks or special characters:
+        Create a detailed \(numberOfDays)-day itinerary for \(city) from \(startDate) to \(endDate). Take the season into consideration. Format each activity exactly like this, with no asterisks or special characters:
         
         Day 1:
         9:00 AM - Central Park Walking Tour
@@ -114,6 +110,7 @@ struct ItineraryView: View {
                 .filter { !$0.isEmpty && !$0.contains("Day") }
             
             let activities = activityStrings.compactMap { activityString -> Activity? in
+                
                 let lines = activityString
                     .trimmingCharacters(in: .whitespacesAndNewlines)
                     .components(separatedBy: .newlines)
@@ -147,5 +144,13 @@ struct ItineraryView: View {
         DispatchQueue.main.async {
             self.itineraryDays = newItineraryDays
         }
+    }
+}
+
+struct ItineraryView_Previews: PreviewProvider {
+    static var previews: some View {
+        ItineraryView(city: "New York City",
+                      startDate: Date.now,
+                      endDate: Date.now.addingTimeInterval(86400))
     }
 }

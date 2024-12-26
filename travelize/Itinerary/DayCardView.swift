@@ -19,16 +19,15 @@ struct DayCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Day Header
             HStack {
                 Image(systemName: "calendar")
-                    .foregroundColor(.blue)
                 Text(dateFormatter.string(from: day.date))
                     .font(.headline)
+                    .foregroundColor(Color(UIColor.label))
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(.systemGray6))
+            .background(Color.cyan.opacity(0.75))
             
             // Activities
             VStack(alignment: .leading, spacing: 15) {
@@ -38,8 +37,8 @@ struct DayCardView: View {
             }
             .padding()
         }
-        .background(Color(.systemBackground))
+        .background(Color(UIColor.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(radius: 2)
+        .shadow(color: Color(UIColor.tertiarySystemFill), radius: 8)
     }
 }

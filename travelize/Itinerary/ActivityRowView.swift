@@ -27,20 +27,21 @@ struct ActivityRowView: View {
                     Text(activity.time)
                 }
                 .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundColor(Color(UIColor.secondaryLabel))
                 .frame(width: 100, alignment: .leading)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     // Title
                     Text(activity.title)
                         .font(.system(.body, design: .rounded))
+                        .foregroundColor(Color(UIColor.label))
                         .fontWeight(.medium)
                     
                     // Description if available
                     if let description = activity.description {
                         Text(description)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color(UIColor.secondaryLabel))
                             .padding(.top, 2)
                     }
                 }
